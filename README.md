@@ -54,6 +54,13 @@ docker info | display system wide information
 docker info --format '{{.DriverStatus}}' | display 'DriverStatus' fragment from docker information
 docker info --format '{{json .DriverStatus}}' | display 'DriverStatus' fragment from docker information in JSON format
 
+### Build Images:
+``` docker
+docker build . 
+docker build -t [imagename] .
+# note that image name must be in lower case
+```
+
 ### Manage Images
 
 Command | Description
@@ -87,6 +94,12 @@ docker container inspect --format '{{json .NetworkSettings}}' [container-name] |
 
 #### Run Container
 
+### This command means that run the container using the image, map local port 3000 to container port 80 and in detached mode (-d), and remove the container once it's stopped(--rm)
+``` docker
+docker run -p 3000:80 -d --rm ImageName
+```
+
+
 Command | Description
 --- | ---
 docker container run [image-name] | run container based on specified image
@@ -94,6 +107,11 @@ docker container run --rm [image-name] | run container based on specified imaged
 docker container run --name fuzzy-box [image-name] | assign name and run container based on specified image
 
 #### Remove Container
+
+``` docker
+docker rm containerId1 containerId2 ....
+docker container rm containerId1 containerId2 ...
+```
 
 Command | Description
 --- | ---
