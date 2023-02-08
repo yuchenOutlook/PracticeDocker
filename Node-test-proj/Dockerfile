@@ -1,4 +1,5 @@
-FROM node
+# It's always a good practice to specify the verison of the base image, in case it pulls latest and causing changes unexpected
+FROM node:16
 
 # set the work directory, 
 WORKDIR /app
